@@ -16,11 +16,13 @@ import com.example.crudapplication.adapter.ProductAdapter
 import com.example.crudapplication.databinding.ActivityDashBoardBinding
 import com.example.crudapplication.repository.ProductRepositoryImpl
 import com.example.crudapplication.viewmodel.ProductViewModel
+import com.google.firebase.auth.FirebaseAuth
 import java.util.ArrayList
 
 class DashBoardActivity : AppCompatActivity() {
     lateinit var dashBoardBinding: ActivityDashBoardBinding
     lateinit var productAdapter: ProductAdapter
+    private lateinit var firebaseAuth: FirebaseAuth
     lateinit var productViewModel: ProductViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +30,7 @@ class DashBoardActivity : AppCompatActivity() {
         enableEdgeToEdge()
         dashBoardBinding = ActivityDashBoardBinding.inflate(layoutInflater)
         setContentView(dashBoardBinding.root)
-
+        firebaseAuth = FirebaseAuth.getInstance()
 
         val repo = ProductRepositoryImpl()
         productViewModel = ProductViewModel(repo)
@@ -36,6 +38,14 @@ class DashBoardActivity : AppCompatActivity() {
 
 
         productAdapter = ProductAdapter(this@DashBoardActivity, ArrayList())
+
+        dashBoardBinding.logout.setOnClickListener{
+            firebaseAuth.signOut()
+
+            var intent = Intent(this@DashBoardActivity,LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         dashBoardBinding.newRecycleView.apply {
             layoutManager = LinearLayoutManager(this@DashBoardActivity)

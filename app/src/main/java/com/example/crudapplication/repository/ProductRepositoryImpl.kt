@@ -46,6 +46,7 @@ class ProductRepositoryImpl : ProductRepository {
         }
     }
 
+
     override fun getAllProduct(callback: (List<ProductModel>?, Boolean, String) -> Unit) {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

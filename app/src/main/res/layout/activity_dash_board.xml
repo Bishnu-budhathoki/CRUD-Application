@@ -9,10 +9,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newRecycleView"
-        android:layout_width="393dp"
-        android:layout_height="714dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="12dp"
+        android:layout_width="387dp"
+        android:layout_height="632dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/sample_product" />
@@ -37,6 +37,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="324dp"
         android:layout_marginEnd="196dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="134dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:text="LogOut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
